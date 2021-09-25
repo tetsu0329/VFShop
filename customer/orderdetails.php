@@ -125,12 +125,13 @@ $singlecustomer = $customer->single_customer($customerid);
                   <label> Payment Method : </label> 
                   <div class="radio" >
                       <label >
-                          <input type="radio"  class="paymethod" name="paymethod" id="deliveryfee" value="Cash on Delivery" checked="true" data-toggle="collapse"  data-parent="#accordion" data-target="#collapseOne" >Cash on Delivery 
+                          <input type="radio"  class="paymethod" name="paymethod" id="deliveryfee" value="Cash on Delivery" checked="true" data-toggle="collapse"  data-parent="#accordion" data-target="#collapseOne" >Cash on Delivery
+                          (Expected Delivery Date: <strong>Wednesday and Saturdays only</strong>) 
                         
                       </label>
                   </div> 
               </div> 
-                        <div class="panel"> 
+                        <div class="panel" > 
                                 <div class="panel-body">
                                     <div class="form-group ">
                                       <label>Address where to deliver</label>
@@ -141,10 +142,19 @@ $singlecustomer = $customer->single_customer($customerid);
                                           "PLACE">Address:</label>
 
                                           <div class="col-md-6">
-                                           <select class="form-control paymethod" name="PLACE" id="PLACE" onchange="validatedate()" required> 
+                                           <select class="form-control paymethod" name="PLACE" id="PLACE" onchange="addressonchange()" required> 
                                            <option value="">Select</option>
                                             <option value="50"><?php echo $singlecustomer->CITYADD ?></option>
+                                            <option value="others">- PLEASE SPECIFY -</option>
                                           </select>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-12" id="otherpaymentdiv" style="visibility:hidden; margin-top:10px;">
+                                          <label class="col-md-6 control-label" for=
+                                          "PLACE">Other Delivery Address:</label>
+
+                                          <div class="col-md-6">
+                                          <input class="form-control" type="text" name="otherplace">
                                           </div>
                                         </div>
                                     </div>
@@ -202,3 +212,15 @@ $singlecustomer = $customer->single_customer($customerid);
     </div>
   </section><!--/#do_action-->
 </form>
+<script>
+  function addressonchange(){
+    var addressselection = $('#PLACE').find(":selected").val();
+    if(addressselection == "others"){
+      $('#otherpaymentdiv').css("visibility", "visible");
+
+    }
+    else{
+      $('#otherpaymentdiv').css("visibility", "hidden");
+    }
+  }
+</script>

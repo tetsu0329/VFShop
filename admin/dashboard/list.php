@@ -5,7 +5,7 @@
 <style type="text/css">
 	body{
 		 margin: 0;
-		 font-family: 'Century Gothic';
+		 
 	}
 
 	.msg1{
@@ -127,34 +127,13 @@ function drawChart() {
     </div>
     <div class="col-lg-12">
     	<div class="container">      
-  			<div class="inquiry_body msg1"><p style="font-size: 50px"><?php echo $inquiryNum; ?></p><hr><img src="../img/inquiry.png" width="20px;"><p style="font-size: 20px">INQUIRY</p></div>
-  			<div class="inquiry_body msg1"><p style="font-size: 50px"><?php echo $orderNum; ?></p><hr><img src="../img/orders.png" width="20px;"><p style="font-size: 20px">ORDER</p></div>
-  			<div class="inquiry_body msg1"><p style="font-size: 50px"><?php echo $userNum; ?></p><hr><img src="../img/users.png" width="20px;"><p style="font-size: 20px">USERS</p></div>
-  			<div class="inquiry_body msg1"><p style="font-size: 50px"><?php echo $productNum; ?></p><hr><img src="../img/products.png" width="20px;"><p style="font-size: 20px">PRODUCTS</p></div>
+  			<div class="inquiry_body msg1"><p style="font-size: 30px; color:black;"><?php echo $inquiryUnreadNum; ?><label style="font-size: 20px; margin-left:10px; color:#0275d8;">UNREAD</label></p><p style="font-size: 30px;color:black;"><?php echo $inquiryReadNum; ?><label style="font-size: 20px; margin-left:10px; color:#5cb85c;">READ</label></p><p style="font-size: 30px"><?php echo ""; ?><label style="font-size: 20px; margin-left:10px;"></label></p><hr><img src="../img/inquiry.png" width="20px;"><p style="font-size: 20px">INQUIRY</p></div>
+  			<div class="inquiry_body msg1"><p style="font-size: 30px; color:black;"><?php echo $orderPendingNum; ?><label style="font-size: 20px; margin-left:10px;color:#f0ad4e;">PENDING</label></p><p style="font-size: 30px; color:black;"><?php echo $orderConfirmedNum; ?><label style="font-size: 20px; margin-left:10px;color:#0275d8;" >CONFIRMED</label></p><p style="font-size: 30px;color:black;"><?php echo $orderDeliveredNum; ?><label style="font-size: 20px; margin-left:10px;color:#5cb85c;">DELIVERED</label></p><hr><img src="../img/orders.png" width="20px;"><p style="font-size: 20px">ORDER</p></div>
+  			<div class="inquiry_body msg1"><p style="font-size: 30px; color:black;"><?php echo $userActiveNum; ?><label style="font-size: 20px; margin-left:10px;color:#5cb85c;">ACTIVE</label></p><p style="font-size: 30px; color:black;"><?php echo $userInactiveNum; ?><label style="font-size: 20px; margin-left:10px;color:#f0ad4e;">INACTIVE</label></p><p style="font-size: 30px"><?php echo ""; ?><label style="font-size: 20px; margin-left:10px;"></label></p><hr><img src="../img/users.png" width="20px;"><p style="font-size: 20px">USERS</p></div>
+  			<div class="inquiry_body msg1"><p style="font-size: 30px; color:black;"><?php echo $productActiveNum; ?><label style="font-size: 20px; margin-left:10px;color:#5cb85c;">ACTIVE</label></p><p style="font-size: 30px; color:black;"><?php echo $productInactiveNum; ?><label style="font-size: 20px; margin-left:10px;color:#f0ad4e;">INACTIVE</label></p><p style="font-size: 30px"><?php echo ""; ?><label style="font-size: 20px; margin-left:10px;"></label></p><hr><img src="../img/products.png" width="20px;"><p style="font-size: 20px">PRODUCTS</p></div>
   			<br>
   			<br>
   			<br>
-  			<div style="margin-top: 35%;">
-  			<p style="font-size: 20px" class="title">MESSAGES</p>
-  			<hr> 
-
-  			<div class="inquiry_body msg">
-  			<p style="font-size: 30px"><?php echo "0"; ?></p>
-  			<img src="../img/read.png" width="20px;">
-  			<p style="font-size: 20px">READ</p>
-  			</div>
-
-  			<div class="inquiry_body msg">
-  			<p style="font-size: 30px"><?php echo "0"; ?></p>
-  			<img src="../img/unread.png" width="20px;">
-  			<p style="font-size: 20px">UNREAD</p>
-  			</div>
-
-  			<div class="inquiry_body msg">
-  			<p style="font-size: 30px"><?php echo "0"; ?></p>
-  			<img src="../img/allmail.png" width="20px;">
-  			<p style="font-size: 20px">TOTAL</p>
-  			</div>
             <div style="margin-top: 35%;">
   			<p style="font-size: 20px" class="title">GRAPH</p>
   			<hr> 

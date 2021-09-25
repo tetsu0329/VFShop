@@ -10,20 +10,40 @@
     //$sqlinquirycount3 = mysqli_query($conn,"SELECT * FROM inquirytable WHERE messagestatus = 'Read'");
     //$inqread = mysqli_num_rows($sqlinquirycount3);
 
-    $mydb->setQuery("SELECT * FROM `tblinquiry`");
+    $mydb->setQuery("SELECT * FROM `tblinquiry` WHERE INQSTATUS = 'READ'");
     $eInquiry = $mydb->executeQuery();
-    $inquiryNum = $eInquiry->num_rows;
+    $inquiryReadNum = $eInquiry->num_rows;
 
-    $mydb->setQuery("SELECT * FROM `tblorder`");
+    $mydb->setQuery("SELECT * FROM `tblinquiry` WHERE INQSTATUS = 'NEW'");
+    $eInquiry = $mydb->executeQuery();
+    $inquiryUnreadNum = $eInquiry->num_rows;
+
+    $mydb->setQuery("SELECT * FROM `tblsummary` WHERE ORDEREDSTATS = 'PENDING'");
     $eOrder = $mydb->executeQuery();
-    $orderNum = $eOrder->num_rows;
+    $orderPendingNum = $eOrder->num_rows;
 
-    $mydb->setQuery("SELECT * FROM `tbluseraccount`");
+    $mydb->setQuery("SELECT * FROM `tblsummary` WHERE ORDEREDSTATS = 'CONFIRMED'");
+    $eOrder = $mydb->executeQuery();
+    $orderConfirmedNum = $eOrder->num_rows;
+
+    $mydb->setQuery("SELECT * FROM `tblsummary` WHERE ORDEREDSTATS = 'DELIVERED'");
+    $eOrder = $mydb->executeQuery();
+    $orderDeliveredNum = $eOrder->num_rows;
+
+    $mydb->setQuery("SELECT * FROM `tbluseraccount` WHERE U_Status = 'Active'");
     $eUser = $mydb->executeQuery();
-    $userNum = $eUser->num_rows; 
+    $userActiveNum = $eUser->num_rows; 
+
+    $mydb->setQuery("SELECT * FROM `tbluseraccount` WHERE U_Status = 'Inactive'");
+    $eUser = $mydb->executeQuery();
+    $userInactiveNum = $eUser->num_rows; 
     
-    $mydb->setQuery("SELECT * FROM `tblproduct`");
+    $mydb->setQuery("SELECT * FROM `tblproduct` WHERE PROD_STATUS = 'Active'");
     $eProduct = $mydb->executeQuery();
-    $productNum = $eProduct->num_rows;
+    $productActiveNum = $eProduct->num_rows;
+
+    $mydb->setQuery("SELECT * FROM `tblproduct` WHERE PROD_STATUS = 'Inactive'");
+    $eProduct = $mydb->executeQuery();
+    $productInactiveNum = $eProduct->num_rows;
 
 ?>

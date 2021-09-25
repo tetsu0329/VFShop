@@ -155,19 +155,59 @@ $singleuser = $user->single_user($_SESSION['USERID']);
            
                         </li>
                         <li>
-                             <a href="<?php echo web_root; ?>admin/products/"><i class="fa fa-barcode fa-fw"></i>  Products </a>
-           
-                        </li>
-                        <li>
                              <a href="<?php echo web_root; ?>admin/orders/" ><i class="fa fa-reorder fa-fw"></i>  Orders <?php echo $order; ?></a>
                         </li>
                         <li>
                              <a href="<?php echo web_root; ?>admin/inquiry/" ><i class="fa fa-envelope-o fa-fw"></i>  Inquiry <?php echo $inquiry; ?></a>
                         </li>
-                         <li>
-                             <a href="<?php echo web_root; ?>admin/category/" ><i class="fa fa-list-alt fa-fw"></i>  Categories </a>
-            
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-pencil-square-o fa-fw"></i><span class="menu-title"> Content Management <i class="fa fa-sort-down"></i></span>
+                            </a>
+                            <div class="collapse" id="collapseExample1">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="about.php"><i class="fa fa-tags" aria-hidden="true"></i>
+                                     About
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.php"><i class="fa fa-info-circle " aria-hidden="true"></i>
+                                      Contact
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="slider.php"><i class="fa fa-film " aria-hidden="true"></i>
+                                      Slider
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-newspaper-o fa-fw"></i><span class="menu-title"> File Maintenance <i class="fa fa-sort-down"></i></span>
+                            </a>
+                            <div class="collapse" id="collapseExample3">
+                                <ul class="nav flex-column sub-menu">
+                                    <li>
+                                        <a href="<?php echo web_root; ?>admin/products/"><i class="fa fa-barcode fa-fw"></i>  Products </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo web_root; ?>admin/category/" ><i class="fa fa-list-alt fa-fw"></i>  Categories </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo web_root; ?>admin/user/" ><i class="fa fa-user fa-fw"></i>  Users </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo web_root; ?>admin/report/" ><i class="fa  fa-file-text fa-fw"></i>  Report </a>
+                          
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                         
                         <?php if ($_SESSION['U_ROLE']=='Administrator') {
                             # code...
                         ?>
@@ -176,13 +216,36 @@ $singleuser = $user->single_user($_SESSION['USERID']);
                              <a href="<?php echo web_root; ?>admin/autonumber/index.php" ><i class="fa fa-list-alt fa-fw"></i>  Autonumber </a>
             
                         </li> -->
-                          <li>
-                            <a href="<?php echo web_root; ?>admin/user/" ><i class="fa fa-user fa-fw"></i>  Users </a>
                           
-                        </li>
-                         <li>
-                            <a href="<?php echo web_root; ?>admin/report/" ><i class="fa  fa-file-text fa-fw"></i>  Report </a>
-                          
+                         
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                                <!-- <i class="fa fa-address-book"></i> -->
+                                <i class="fa fa-folder fa-fw"></i><span class="menu-title"> Archive <i class="fa fa-sort-down"></i></span>
+                            </a>
+                            <div class="collapse" id="collapseExample2">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="about.php"><i class="fa fa-reorder fa-fw"></i>
+                                     Order (Archive)
+                                    </a>
+                                    <li class="nav-item">
+                                    <a class="nav-link" href="about.php"><i class="fa fa-barcode fa-fw"></i>
+                                     Product (Archive)
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.php"><i class="fa fa-user fa-fw"></i>
+                                      User (Archive)
+                                    </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="slider.php"><i class="fa fa-envelope-o fa-fw"></i>
+                                      Inquiry (Archive)
+                                    </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                  <?php }  ?>
  

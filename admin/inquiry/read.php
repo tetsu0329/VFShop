@@ -35,13 +35,13 @@
             <div class="col-md-8" style="margin-top:20px;" >
                 <label class="col-md-4 control-label" for="idno">Created On</label>
                 <div class="col-md-8">
-                    <input class="form-control type="text" value="<?php echo $singleinquiry->INQDATECREATED; ?>" disabled>
+                    <input class="form-control" type="text" value="<?php echo $singleinquiry->INQDATECREATED; ?>" disabled>
                 </div>
             </div>
             <div class="col-md-8" style="margin-top:20px;" >
                 <label class="col-md-4 control-label" for="idno">Subject</label>
                 <div class="col-md-8">
-                    <input class="form-control type="text" value="<?php echo $singleinquiry->INQSUBJ; ?>" disabled>
+                    <input class="form-control" type="text" value="<?php echo $singleinquiry->INQSUBJ; ?>" disabled>
                 </div>
             </div>
             <div class="col-md-8" style="margin-top:20px;">

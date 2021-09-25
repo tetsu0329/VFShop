@@ -212,6 +212,14 @@ function doInsert(){
 			$summary->ORDEREDSTATS 	= 'Pending';
 			$summary->CLAIMEDDATE		= $_POST['CLAIMEDDATE'];
 			$summary->ORDEREDREMARKS 	= 'Your order is on process.';
+			$deladdress = $_POST['PLACE'];
+			if ($deladdress == "50"){
+				$summary->ORDERADD = "DEFAULT";
+			}
+			else{
+				$otheradd = $_POST['otherplace'];
+				$summary->ORDERADD = $otheradd;
+			}
 			$summary->HVIEW 			= 0	;
 			$summary->create();
 		  }

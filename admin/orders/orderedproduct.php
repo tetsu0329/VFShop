@@ -56,8 +56,19 @@ $query = "SELECT * FROM `tblsummary` s ,`tblcustomer` c
 	</div>
 	<div class="row" style="margin:2%">
 		<div class="col-md-6">Name : <?php echo $cur->FNAME . ' '.  $cur->LNAME ;?></div>
-		<div class="col-md-6">Address:  <?php echo $cur->CUSHOMENUM . ' ' . $cur->STREETADD . ' ' .$cur->BRGYADD . ' ' . $cur->CITYADD . ' ' .$cur->PROVINCE . ' ' .$cur->COUNTRY; ?>
-     </div>
+		<?php
+			if($cur->ORDERADD == 'DEFAULT'){
+		?>
+		<div class="col-md-6">Deliver to:  <?php echo $cur->CUSHOMENUM . ' ' . $cur->STREETADD . ' ' .$cur->BRGYADD . ' ' . $cur->CITYADD . ' ' .$cur->PROVINCE . ' ' .$cur->COUNTRY; ?>
+     	</div>
+		<?php
+		}
+		else{
+		?>
+			<div class="col-md-6">Deliver to:  <?php echo $cur->ORDERADD; ?></div>
+		<?php
+			}
+		?>
 	</div>
 		
 
