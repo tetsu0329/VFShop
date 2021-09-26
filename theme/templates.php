@@ -49,17 +49,22 @@ if (isset($_SESSION['gcCart'])){
           <div class="col-sm-6">
             <div class="contactinfo">
               <ul class="nav nav-pills">
-                <li><a href="#"><i class="fa fa-phone"></i> +1 2345 6789</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> EduardEdleenShop@gmail.com</a></li>
+              <?php 
+                $query = "SELECT * FROM `tblcontact` ";
+                    $mydb->setQuery($query);
+                    $contactcur = $mydb->loadSingleResult();
+                ?>
+                <li><a href="#"><i class="fa fa-phone"></i><?php echo $contactcur->CMS_CONTACT_PHONE ?></a></li>
+                <li><a href="#"><i class="fa fa-envelope" style="margin-right:5px;"></i><?php echo  $contactcur->CMS_CONTACT_EMAIL ?></a></li>
               </ul>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="social-icons pull-right">
               <ul class="nav navbar-nav">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="<?php echo  $contactcur->CMS_CONTACT_FB ?>"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="<?php echo  $contactcur->CMS_CONTACT_TWT ?>"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="<?php echo  $contactcur->CMS_CONTACT_IG ?>"><i class="fa fa-instagram"></i></a></li>
                 <li><a href="#"><i class="fa fa-youtube"></i></a></li>
               </ul>
             </div>
@@ -73,7 +78,12 @@ if (isset($_SESSION['gcCart'])){
         <div class="row">
           <div class="col-md-4 clearfix">
             <div class="logo pull-left">
-              <a href="<?php echo web_root?>"><img src="images/home/logo.jpg" alt="" /></a>
+            <?php 
+                    $query = "SELECT * FROM `tblabout` ";
+                    $mydb->setQuery($query);
+                    $logocur = $mydb->loadSingleResult();
+                ?>
+              <a href="<?php echo web_root?>"><img src="<?php echo $logocur->CMS_ABOUT_BUSINESSLOGO?>" alt="" /></a>
             </div> 
           </div>
           <div class="col-md-8 clearfix">
@@ -121,6 +131,7 @@ if (isset($_SESSION['gcCart'])){
 
          
                 <li><a href="<?php web_root?>index.php?q=product">Products</a></li>
+                <li><a href="<?php web_root?>index.php?q=about">About</a></li>
                 <li><a href="<?php web_root?>index.php?q=contact">Contact</a></li>
               </ul>
             </div>

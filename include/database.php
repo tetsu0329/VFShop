@@ -92,6 +92,9 @@ class Database {
 	public function fetch_array($result) {
 		return mysqli_fetch_array($result);
 	}
+	public function fetch_assoc($result) {
+		return mysqli_fetch_assoc($result);
+	}
 	//gets the number or rows	
 	public function num_rows($result_set) {
 		return mysqli_num_rows($result_set);

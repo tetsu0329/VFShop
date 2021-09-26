@@ -63,6 +63,10 @@ switch ($view) {
         $title="Contact Us";	
 		$content='contact.php';		
 		break;
+	case 'about' :
+			$title="About Us";	
+			$content='about.php';		
+			break;
  	case 'single-item' :
         $title="Product";	
 		$content='single-item.php';		

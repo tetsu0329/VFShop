@@ -35,12 +35,16 @@
                 <div class="col-sm-4">
                     <div class="contact-info">
                         <h2 class="title text-center">Contact Info</h2>
+                        <?php
+                            $query = "SELECT * FROM `tblcontact` ";
+                            $mydb->setQuery($query);
+                            $contactcur = $mydb->loadSingleResult();
+                        ?>
                         <address>
-                            <p>Eduard and Edleen Fruits and Vegetable Shop</p>
-                            <p>Kadiwa Market</p>
-                            <p>Dasmarinas Cavite</p>
-                            <p>Mobile: +2346 17 38 93</p>
-                            <p>Email: EduardEdleenShop@gmail.com</p>
+                            <p><?php echo $contactcur->CMS_CONTACT_NAME ?></p>
+                            <p><?php echo $contactcur->CMS_CONTACT_ADDRESS ?></p>
+                            <p>Mobile: <?php echo $contactcur->CMS_CONTACT_PHONE ?></p>
+                            <p>Email: <?php echo $contactcur->CMS_CONTACT_EMAIL ?></p>
                         </address>
                         <div class="social-networks">
                             <h2 class="title text-center">Social Networking</h2>

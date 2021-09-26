@@ -34,6 +34,9 @@
 <link href="<?php echo web_root; ?>admin/css/costum.css" rel="stylesheet">
 
 <link href="<?php echo web_root; ?>admin/css/ekko-lightbox.css" rel="stylesheet">
+
+<script src="<?php echo web_root; ?>admin/ckeditor/ckeditor.js"></script>
+
 </head>
 
 
@@ -167,12 +170,12 @@ $singleuser = $user->single_user($_SESSION['USERID']);
                             <div class="collapse" id="collapseExample1">
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item">
-                                    <a class="nav-link" href="about.php"><i class="fa fa-tags" aria-hidden="true"></i>
+                                    <a class="nav-link" href="<?php echo web_root; ?>admin/cms/index.php?view=About"><i class="fa fa-tags" aria-hidden="true"></i>
                                      About
                                     </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="contact.php"><i class="fa fa-info-circle " aria-hidden="true"></i>
+                                        <a class="nav-link" href="<?php echo web_root; ?>admin/cms/index.php?view=Contact"><i class="fa fa-info-circle " aria-hidden="true"></i>
                                       Contact
                                     </a>
                                     </li>
