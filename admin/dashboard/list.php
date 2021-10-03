@@ -136,16 +136,14 @@ function drawChart() {
   			<br>
             <div style="margin-top: 35%;">
   			<p style="font-size: 20px" class="title">GRAPH</p>
-  			<hr> 
-            <div class="graph">
+  			<hr>
+			  
+            <div class="graph" style="margin-left:300px;">
                 <div style="min-height:415px;">
+				<center>
                 <div id="piechart"></div>
                 </div>
-            </div>
-            <div class="graph">
-                <div style="min-height:415px;">
-                <div id="piechart2"></div>
-                </div>
+				</center>
             </div>
   		</div>
     </div>

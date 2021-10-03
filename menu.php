@@ -45,17 +45,10 @@
               <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
-                      <img src="<?php  echo web_root.'admin/products/'. $result->IMAGES; ?>" alt="" />
+                      <img src="<?php  echo web_root.'admin/products/'. $result->IMAGES; ?>" alt="" class="productimages"/>
                       <h2>&#8369 <?php  echo $result->PRODISPRICE; ?></h2>
                       <p><?php  echo    $result->PRODESC; ?></p>
                       <button type="submit" name="btnorder" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                    </div>
-                    <div class="product-overlay">
-                      <div class="overlay-content">
-                        <h2>&#8369 <?php  echo $result->PRODISPRICE; ?></h2>
-                        <p><?php  echo    $result->PRODESC; ?></p>
-                        <button type="submit" name="btnorder" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                      </div>
                     </div>
                 </div>
                 <div class="choose">
@@ -76,6 +69,19 @@
             }?> 
           </div><!--features_items-->
         </div>
+        <script type="text/javascript">
+
+          jQuery(document).ready(function($){ //fire on DOM ready
+            $('.productimages').each(function(){
+              $(this).addpowerzoom({
+                magnifiersize: [180, 180],
+                defaultpower: 2,
+                powerrange: [1, 10]
+              });
+            }) //add zoom effect to images with CSS class "showcase"
+          })
+
+          </script>
       </div>
     </div>
   </section>

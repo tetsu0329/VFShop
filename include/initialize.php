@@ -28,6 +28,8 @@ require_once(LIB_PATH.DS."settings.php");
 require_once(LIB_PATH.DS."inquiry.php");
 require_once(LIB_PATH.DS."about.php");
 require_once(LIB_PATH.DS."contact.php");
+require_once(LIB_PATH.DS."home.php");
+
 
 
 require_once(LIB_PATH.DS."database.php");

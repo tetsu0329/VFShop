@@ -22,8 +22,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="stylesheet" href="css/multizoom.css" type="text/css" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="jquery/ddpowerzoomer.js"></script>
+
+
 </head><!--/head-->
- 
 
 <?php
 if (isset($_SESSION['gcCart'])){
@@ -83,7 +88,7 @@ if (isset($_SESSION['gcCart'])){
                     $mydb->setQuery($query);
                     $logocur = $mydb->loadSingleResult();
                 ?>
-              <a href="<?php echo web_root?>"><img src="<?php echo $logocur->CMS_ABOUT_BUSINESSLOGO?>" alt="" /></a>
+              <a href="<?php echo web_root?>"><img src="<?php echo web_root."admin/cms/".$logocur->CMS_ABOUT_BUSINESSLOGO?>" alt="" /></a>
             </div> 
           </div>
           <div class="col-md-8 clearfix">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 11:16 AM
+-- Generation Time: Oct 03, 2021 at 12:47 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -155,7 +155,7 @@ CREATE TABLE `tblabout` (
 --
 
 INSERT INTO `tblabout` (`CMS_ABOUT_ID`, `CMS_ABOUT_STORY`, `CMS_ABOUT_MISSION`, `CMS_ABOUT_VISION`, `CMS_ABOUT_BUSINESSLOGO`) VALUES
-(1, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '<p>Our Mission aims to be a service dedicated supplier of high-quality fresh fruit and vegetables; products of an outstanding quality, with guaranteed food safety and grown under circumstances with attention to people and the environment. We achieve this by acting with discretion, passion and commitment.</p>\r\n\r\n<p>1. &ldquo;To provide the highest quality product at the lowest possible price, the best consumer experience in the industry, and respect for our employees, business partners, and community.&rdquo;</p>\r\n\r\n<p>2.&nbsp;&ldquo;Inspire Loyalty in both our guests and in our staff.&rdquo;</p>\r\n', '<p>Fresh fruit and vegetables&nbsp;are a delicious, healthy food. Our products not only give you the vitamins, minerals and fibres you need to take care of your health, but thanks to their fragrance, flavour and colour, they give our consumers a shared pleasure: good food.</p>\r\n\r\n<p>Since our inception, we have not just grown food to feed people, but also to inspire people through our production system and sustainable way of doing business. We live in balance and harmony, both amongst ourselves as well as with our environment, maintaining the highest standards of quality and using only the best seeds.</p>\r\n\r\n<p>&nbsp;</p>\r\n', 'admin/images/businesslogo.png');
+(1, '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', '<p>Our Mission aims to be a service dedicated supplier of high-quality fresh fruit and vegetables; products of an outstanding quality, with guaranteed food safety and grown under circumstances with attention to people and the environment. We achieve this by acting with discretion, passion and commitment.</p>\r\n\r\n<p>1. &ldquo;To provide the highest quality product at the lowest possible price, the best consumer experience in the industry, and respect for our employees, business partners, and community.&rdquo;</p>\r\n\r\n<p>2.&nbsp;&ldquo;Inspire Loyalty in both our guests and in our staff.&rdquo;</p>\r\n', '<p>Fresh fruit and vegetables&nbsp;are a delicious, healthy food. Our products not only give you the vitamins, minerals and fibres you need to take care of your health, but thanks to their fragrance, flavour and colour, they give our consumers a shared pleasure: good food.</p>\r\n\r\n<p>Since our inception, we have not just grown food to feed people, but also to inspire people through our production system and sustainable way of doing business. We live in balance and harmony, both amongst ourselves as well as with our environment, maintaining the highest standards of quality and using only the best seeds.</p>\r\n\r\n<p>&nbsp;</p>\r\n', '../../images/home/msqgelogo.jpg');
 
 -- --------------------------------------------------------
 
@@ -519,6 +519,32 @@ CREATE TABLE `tblwishlist` (
 INSERT INTO `tblwishlist` (`id`, `CUSID`, `PROID`, `WISHDATE`, `WISHSTATS`) VALUES
 (2, 9, 201742, '2019-08-21', '0');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_homeinfo`
+--
+
+CREATE TABLE `tbl_homeinfo` (
+  `CMS_HOME_ID` int(11) NOT NULL,
+  `CMS_SLIDER_1_PICTURE` varchar(255) NOT NULL,
+  `CMS_SLIDER_1_TITLE` varchar(255) NOT NULL,
+  `CMS_SLIDER_1_SUBTITLE` varchar(255) NOT NULL,
+  `CMS_SLIDER_2_PICTURE` varchar(255) NOT NULL,
+  `CMS_SLIDER_2_TITLE` varchar(255) NOT NULL,
+  `CMS_SLIDER_2_SUBTITLE` varchar(255) NOT NULL,
+  `CMS_SLIDER_3_PICTURE` varchar(255) NOT NULL,
+  `CMS_SLIDER_3_TITLE` varchar(255) NOT NULL,
+  `CMS_SLIDER_3_SUBTITLE` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_homeinfo`
+--
+
+INSERT INTO `tbl_homeinfo` (`CMS_HOME_ID`, `CMS_SLIDER_1_PICTURE`, `CMS_SLIDER_1_TITLE`, `CMS_SLIDER_1_SUBTITLE`, `CMS_SLIDER_2_PICTURE`, `CMS_SLIDER_2_TITLE`, `CMS_SLIDER_2_SUBTITLE`, `CMS_SLIDER_3_PICTURE`, `CMS_SLIDER_3_TITLE`, `CMS_SLIDER_3_SUBTITLE`) VALUES
+(1, '../../images/home/ebgwfgirl3.jpg', 'Fresh Fruits and Vegetables', 'Fresh Fruits and Vegetabless Fresh Fruits and Vegetabless Fresh Fruits and Vegetables', '../../images/home/woytqgirl1.jpg', 'Healthy Lifestyles', 'Healthy Lifestyles Healthy Lifestyles Healthy Lifestyles Healthy Lifestyles', '../../images/home/tclpfdpahngirl2.jpg', 'Farm Fresh', 'Farm Freshsss');
+
 --
 -- Indexes for dumped tables
 --
@@ -638,6 +664,12 @@ ALTER TABLE `tblwishlist`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_homeinfo`
+--
+ALTER TABLE `tbl_homeinfo`
+  ADD PRIMARY KEY (`CMS_HOME_ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -736,6 +768,12 @@ ALTER TABLE `tbluseraccount`
 --
 ALTER TABLE `tblwishlist`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_homeinfo`
+--
+ALTER TABLE `tbl_homeinfo`
+  MODIFY `CMS_HOME_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

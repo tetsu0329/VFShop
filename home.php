@@ -9,39 +9,44 @@
               <li data-target="#slider-carousel" data-slide-to="2"></li>
             </ol>
             
-            <div class="carousel-inner">
+            <div class="carousel-inner" style="height:500px;">
               <div class="item active">
+              <?php
+                    $query = "SELECT * FROM `tbl_homeinfo` ";
+                    $mydb->setQuery($query);
+                    $slider1details = $mydb->loadSingleResult();
+                ?>
                 <div class="col-sm-6">
                   <h1><span>Eduard and Edleen</span> <br>Fruits and Vegetable Shop</h1>
-                  <h2>Fresh Fruits and Vegetables</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                  <h2><?php echo $slider1details->CMS_SLIDER_1_TITLE; ?></h2>
+                  <p><?php echo $slider1details->CMS_SLIDER_1_SUBTITLE; ?></p>
                  
                 </div>
                 <div class="col-sm-6">
-                  <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                  <img src="<?php echo "admin/cms/".$slider1details->CMS_SLIDER_1_PICTURE; ?>" class="girl img-responsive" alt="" />
                 </div>
               </div>
               <div class="item">
                 <div class="col-sm-6">
                   <h1><span>Eduard and Edleen</span><br>Fruits and Vegetable Shop</h1>
-                  <h2>Healthy Lifestyle</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                  <h2><?php echo $slider1details->CMS_SLIDER_2_TITLE; ?></h2>
+                  <p><?php echo $slider1details->CMS_SLIDER_2_SUBTITLE; ?></p>
                  
                 </div>
                 <div class="col-sm-6">
-                  <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                  <img src="<?php echo "admin/cms/".$slider1details->CMS_SLIDER_2_PICTURE; ?>" class="girl img-responsive" alt="" />
                 </div>
               </div>
               
               <div class="item">
                 <div class="col-sm-6">
                   <h1><span>Eduard and Edleen</span><br>Fruits and Vegetable Shop</h1>
-                  <h2>Farm Fresh</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                  <h2><?php echo $slider1details->CMS_SLIDER_3_TITLE; ?></h2>
+                  <p><?php echo $slider1details->CMS_SLIDER_3_SUBTITLE; ?></p>
                  
                 </div>
                 <div class="col-sm-6">
-                  <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                  <img src="<?php echo "admin/cms/".$slider1details->CMS_SLIDER_3_PICTURE; ?>" class="girl img-responsive" alt="" />
                 </div>
               </div>
               
@@ -69,7 +74,7 @@
         
         <div class="col-sm-9 padding-right">
           <div class="features_items"><!--features_items-->
-            <h2 class="title text-center">Features Items</h2>
+            <h2 class="title text-center">Featured Items</h2>
 
             <?php
 
@@ -90,27 +95,34 @@
               <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
-                      <img src="<?php  echo web_root.'admin/products/'. $result->IMAGES; ?>" alt="" />
+                      <img src="<?php  echo web_root.'admin/products/'. $result->IMAGES; ?>" alt="" class="productimages">
                       <h2>&#8369 <?php  echo $result->PRODISPRICE; ?></h2>
                       <p><?php  echo    $result->PRODNAME; ?></p>
                       <p><?php  echo    $result->PRODESC; ?></p>
                       <button type="submit" name="btnorder" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                      
                     </div>
-                    <div class="product-overlay">
-                      <div class="overlay-content">
-                        <h2>&#8369 <?php  echo $result->PRODISPRICE; ?></h2>
-                        <p><?php  echo    $result->PRODNAME; ?></p>
-                        <p><?php  echo    $result->PRODESC; ?></p>
-                       <button type="submit" name="btnorder" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                      </div>
-                    </div>
+                    
                 </div>
                 
               </div>
+              
             </div>
           </form>
        <?php  } ?>
-            
+       <script type="text/javascript">
+
+          jQuery(document).ready(function($){ //fire on DOM ready
+            $('.productimages').each(function(){
+              $(this).addpowerzoom({
+                magnifiersize: [180, 180],
+                defaultpower: 2,
+                powerrange: [1, 10]
+              });
+            }) //add zoom effect to images with CSS class "showcase"
+          })
+
+          </script>
           </div><!--features_items--> 
           
           <div class="recommended_items"><!--recommended_items-->

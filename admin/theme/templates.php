@@ -180,7 +180,7 @@ $singleuser = $user->single_user($_SESSION['USERID']);
                                     </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="slider.php"><i class="fa fa-film " aria-hidden="true"></i>
+                                        <a class="nav-link" href="<?php echo web_root; ?>admin/cms/index.php?view=Home"><i class="fa fa-film " aria-hidden="true"></i>
                                       Slider
                                     </a>
                                     </li>

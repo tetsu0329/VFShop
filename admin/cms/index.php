@@ -21,9 +21,12 @@ $view = (isset($_GET['view']) && $_GET['view'] != '') ? $_GET['view'] : '';
 			$title = "CMS";
 			$content = "contact.php";
 			break;
-	}
 	
+	case "Home" :
+		$title = "CMS";
+		$content = "home.php";
+		break;
+	}
 
- 
 require_once ("../theme/templates.php");
 ?>
