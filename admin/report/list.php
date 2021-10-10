@@ -67,7 +67,7 @@
    <div class="col-lg-4"> 
 	 <div class="col-md-12"  > 
  	    <div class="row">
-		  <div class="col-md-6">
+		  <div class="col-md-3">
 				<div class="form-group input-group"> 
 	                <label>From::</label> 
 	                <input type="text" data-date="" data-date-format="yyyy-mm-dd" data-link-field="any" 
@@ -80,7 +80,7 @@
 	                </span>
 	            </div>
 				</div>
-					<div class="col-md-6">
+				<div class="col-md-3">
 					<div class="form-group input-group"> 
 		                <label>To::</label> 
 		                <input type="text" data-date="" data-date-format="yyyy-mm-dd" data-link-field="any" 
@@ -91,6 +91,25 @@
 		                <span class="input-group-btn">
 		                    <i class="fa  fa-calendar" ></i> 
 		                </span>
+
+		            </div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group input-group"> 
+		                <label>Category:</label><br>
+						<select class="form-control input-sm" name="CATEGORY" id="CATEGORY">
+                          <option value="">Choose</option>
+                          <?php
+                            //Statement
+                          $mydb->setQuery("SELECT * FROM `tblcategory`");
+                          $cur = $mydb->loadResultList();
+
+                        foreach ($cur as $result) {
+                          echo  '<option value='.$result->CATEGID.' >'.$result->CATEGID." - ".$result->CATEGORIES.'</option>';
+                          }
+                          ?>
+          
+                        </select> 
 
 		            </div>
 				</div>
@@ -128,6 +147,7 @@
 				<td >Date Ordered</td>  
 				<!-- <td >Customer</td> -->
 				<td >Product</td>
+				<td >Product Category </td>
 				<td >Original Price</td>
 				<td >Price</td>
 				<td >Quantity</td> 
@@ -153,13 +173,32 @@ if(isset($_POST['submit'])){
 // AND CONCAT(`PRODESC`, ' ' ,O.`ORDEREDNUM`, ' ' ,`FNAME`,' ', `LNAME`, ' ',`MNAME`) LIKE '%{$_POST['txtSearch']}%' AND DATE(ORDEREDDATE) >= '". date_format(date_create($_POST['date_pickerfrom']),'Y-m-d')."' 
 // AND DATE(ORDEREDDATE) <= '". date_format(date_create($_POST['date_pickerto']),'Y-m-d')."' GROUP BY `PRODESC`
 // ";
-
-$query="SELECT *,SUM(ORDEREDQTY) as 'QTY'  FROM `tblproduct` P  ,`tblpromopro` PR ,`tblorder` O, `tblsummary` S ,`tblcustomer` C 
-WHERE P.`PROID`=PR.`PROID` AND PR.`PROID`=O.`PROID` AND O.`ORDEREDNUM`=S.`ORDEREDNUM` AND S.`CUSTOMERID`=C.`CUSTOMERID`  
-AND  DATE(ORDEREDDATE) >= '". date_format(date_create($_POST['date_pickerfrom']),'Y-m-d')."' 
-AND DATE(ORDEREDDATE) <= '". date_format(date_create($_POST['date_pickerto']),'Y-m-d')."' GROUP BY `PRODESC`
-";
-
+if ($_POST['date_pickerfrom'] == '' && $_POST['date_pickerto'] == '' && $_POST["CATEGORY"] == ''){
+	$query="SELECT *,SUM(ORDEREDQTY) as 'QTY'  FROM `tblproduct` P  ,`tblpromopro` PR ,`tblorder` O, `tblsummary` S ,`tblcustomer` C, `tblcategory` A
+	WHERE P.`PROID`=PR.`PROID` AND PR.`PROID`=O.`PROID` AND O.`ORDEREDNUM`=S.`ORDEREDNUM` AND S.`CUSTOMERID`=C.`CUSTOMERID` AND P.`CATEGID` = A.`CATEGID`
+	GROUP BY `PRODESC`";
+}
+else if ($_POST['date_pickerfrom'] != '' && $_POST['date_pickerto'] != '' && $_POST['CATEGORY'] != ''){
+	$query="SELECT *,SUM(ORDEREDQTY) as 'QTY'  FROM `tblproduct` P  ,`tblpromopro` PR ,`tblorder` O, `tblsummary` S ,`tblcustomer` C, `tblcategory` A
+	WHERE P.`PROID`=PR.`PROID` AND PR.`PROID`=O.`PROID` AND O.`ORDEREDNUM`=S.`ORDEREDNUM` AND S.`CUSTOMERID`=C.`CUSTOMERID` AND P.`CATEGID` = A.`CATEGID`
+	AND  DATE(ORDEREDDATE) >= '". date_format(date_create($_POST['date_pickerfrom']),'Y-m-d')."' 
+	AND DATE(ORDEREDDATE) <= '". date_format(date_create($_POST['date_pickerto']),'Y-m-d')."'
+	AND P.CATEGID = '".$_POST['CATEGORY']."' 
+	GROUP BY `PRODESC`";
+}
+else if ($_POST['date_pickerfrom'] != '' && $_POST['date_pickerto'] != '' && $_POST['CATEGORY'] == ''){
+	$query="SELECT *,SUM(ORDEREDQTY) as 'QTY'  FROM `tblproduct` P  ,`tblpromopro` PR ,`tblorder` O, `tblsummary` S ,`tblcustomer` C, `tblcategory` A
+	WHERE P.`PROID`=PR.`PROID` AND PR.`PROID`=O.`PROID` AND O.`ORDEREDNUM`=S.`ORDEREDNUM` AND S.`CUSTOMERID`=C.`CUSTOMERID` AND P.`CATEGID` = A.`CATEGID`
+	AND  DATE(ORDEREDDATE) >= '". date_format(date_create($_POST['date_pickerfrom']),'Y-m-d')."' 
+	AND DATE(ORDEREDDATE) <= '". date_format(date_create($_POST['date_pickerto']),'Y-m-d')."'
+	GROUP BY `PRODESC`";
+}
+else if ($_POST['date_pickerfrom'] == '' && $_POST['date_pickerto'] == '' && $_POST['CATEGORY'] != ''){
+	$query="SELECT *,SUM(ORDEREDQTY) as 'QTY'  FROM `tblproduct` P  ,`tblpromopro` PR ,`tblorder` O, `tblsummary` S ,`tblcustomer` C, `tblcategory` A
+	WHERE P.`PROID`=PR.`PROID` AND PR.`PROID`=O.`PROID` AND O.`ORDEREDNUM`=S.`ORDEREDNUM` AND S.`CUSTOMERID`=C.`CUSTOMERID` AND P.`CATEGID` = A.`CATEGID`
+	AND P.CATEGID = '".$_POST['CATEGORY']."' 
+	GROUP BY `PRODESC`";
+}
 
 // $query = "SELECT  *  FROM  `tblcustomer` c,  `tblsummary` s 
 //            WHERE  c.`CUSTOMERID` = s.`CUSTOMERID` AND  ORDEREDSTATS='Confirmed' 
@@ -177,6 +216,7 @@ AND DATE(ORDEREDDATE) <= '". date_format(date_create($_POST['date_pickerto']),'Y
 							echo '<tr>
 									<td>'.date_format(date_create($result->ORDEREDDATE),'M/d/Y h:i:s').'</td>   
 									<td>'.$result->PRODESC.'</td>
+									<td>'.$result->CATEGORIES.'</td>
 									<td>'.$result->ORIGINALPRICE.'</td>
 									<td>'.$result->PROPRICE.'</td>
 									<td>'.$result->QTY .'</td>
@@ -201,7 +241,7 @@ AND DATE(ORDEREDDATE) <= '". date_format(date_create($_POST['date_pickerto']),'Y
 </tbody>
 <tfoot>
 	<tr>
-		<td colspan="2">Total</td>
+		<td colspan="3">Total</td>
 		<td><?php echo $Capital; ?></td>
 		<td><?php echo $markupPrice; ?></td>
 		<td><?php echo $totQty; ?></td>
